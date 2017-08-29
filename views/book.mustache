@@ -2,19 +2,34 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Book Entry</title>
+    <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta20/shoelace.css">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
   <body>
-    {{#books}}
+    {{#book}}
     <h1>{{title}}</h1>
     <h2>Author: {{author}}</h2>
+    {{#genre}}
     <h3>Genre: {{genre}}</h3>
-    <p>Pages: {{pages}}</p>
-    <p>Published: {{year}}</p>
-    
-    {{/books}}
+    {{/genre}}
+    {{#pages}}
+    <h3>Pages: {{pages}}</h3>
+    {{/pages}}
+    {{#year}}
+    <h3>Published: {{year}}</h3>
+    {{/year}}
+    {{#isbn}}
+    <h3>ISBN: {{isbn}}</h3>
+    {{/isbn}}
+    {{#language}}
+    <h3>Language: {{language}}</h3>
+    {{/language}}
+
+    {{/book}}
     <p>
-      <a href="/new">Add Book to Library</a>
+      <a href="/">Back to Library</a>
     </p>
+    <script src="https://cdn.shoelace.style/1.0.0-beta20/shoelace.js"></script>
   </body>
 </html>
