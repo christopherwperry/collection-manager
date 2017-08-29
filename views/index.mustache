@@ -9,7 +9,9 @@
     <div class="books">
       {{#books}}
       <div class="one-book">
-        <h2>{{title}}</h2>
+        <a href="/{{title}}">
+          <h2>{{title}}</h2>
+        </a>
         <dl>
           {{#author}}
           <dt>Author</dt>
@@ -18,6 +20,12 @@
         </dl>
       </div>
       {{/books}}
+      {{^books}}
+      <h2>No Books in Library</h2>
+      {{/books}}
     </div>
+    <p>
+      <a href="/new">Add Book to Library</a>
+    </p>
   </body>
 </html>

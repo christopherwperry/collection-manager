@@ -5,10 +5,16 @@
     <title></title>
   </head>
   <body>
+    {{#books}}
     <h1>{{title}}</h1>
     <h2>Author: {{author}}</h2>
     <h3>Genre: {{genre}}</h3>
     <p>Pages: {{pages}}</p>
     <p>Published: {{year}}</p>
+    
+    {{/books}}
+    <p>
+      <a href="/new">Add Book to Library</a>
+    </p>
   </body>
 </html>
