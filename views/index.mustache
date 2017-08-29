@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Book Collection</title>
+  </head>
+  <body>
+    Page for all recipes:
+    {{#books}}
+    <h2>{{name}}</h2>
+    <dl>
+      {{#author}}
+      <dt>Author</dt>
+      <dd>{{.}}</dd>
+      {{/author}}
+    </dl>
+    {{/books}}
+  </body>
+</html>
