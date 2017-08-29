@@ -14,13 +14,20 @@ app.set('views', './views');
 app.set('view engine', 'mustache');
 
 app.get('/', function(req, res){
-  Book.find().then(function (books){
+//  const books = db.collection('books');
+  Book.find({}).then(function (books){
     res.render('index', {books})
   })
 })
 
 app.get('/new', function(req, res){
   res.render('new')
+})
+
+app.post('/new', function(req, res){
+  const books = db.collection('books');
+  books.insert({"title": req.body.title, "author": req.body.author, "genre": req.body.genre, "pages": req.body.pages, "year": req.body.year});
+  res.redirect('/');
 })
 
 app.listen(port, function(){

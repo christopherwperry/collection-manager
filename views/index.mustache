@@ -5,15 +5,19 @@
     <title>Book Collection</title>
   </head>
   <body>
-    Page for all recipes:
-    {{#books}}
-    <h2>{{name}}</h2>
-    <dl>
-      {{#author}}
-      <dt>Author</dt>
-      <dd>{{.}}</dd>
-      {{/author}}
-    </dl>
-    {{/books}}
+    <h1>Books in Library</h1>
+    <div class="books">
+      {{#books}}
+      <div class="one-book">
+        <h2>{{title}}</h2>
+        <dl>
+          {{#author}}
+          <dt>Author</dt>
+          <dd>{{.}}</dd>
+          {{/author}}
+        </dl>
+      </div>
+      {{/books}}
+    </div>
   </body>
 </html>

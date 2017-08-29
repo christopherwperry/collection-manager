@@ -2,11 +2,33 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Add New Book</title>
   </head>
   <body>
+    <h1>Enter New Book to Library</h1>
+    <a href="/">Back to Library</a>
+    <br>
+    <br>
     <form class="new-book" action="/new" method="post">
-
+      <label for="title">Title</label>
+      <input type="text" name="title" value="" placeholder="Enter Title">
+      <br>
+      <label for="author">Author</label>
+      <input type="text" name="author" value="" placeholder="Enter Author">
+      <br>
+      <label for="genre">Genre</label>
+      <input type="text" name="genre" value="" placeholder="Enter Genre">
+      <br>
+      <label for="pages">Pages</label>
+      <input type="number" name="pages" value="" placeholder="Number of Pages">
+      <br>
+      <label for="year">Year Published</label>
+      <input type="number" name="year" value="" placeholder="Enter Publishing Year">
+      <br>
+      <label for="editions">Editions</label>
+      <input type="text" name="editions" value="" placeholder="Enter Edition">
+      <br>
+      <button type="submit" name="button">Enter New Book</button>
     </form>
   </body>
 </html>
