@@ -7,10 +7,42 @@
     <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
   <body>
-    {{#books}}
+    {{#book}}
+    <h2>Editions of {{title}}</h2>
+    <ul>
+    {{#editions}}
+    <li>
+    {{year}} {{publisher}} {{location}}
+    </li>
+    {{/editions}}
+    </ul>
+    <form action="/{{title}}/new_edition/" method="post">
+    <p>
+      <label for="year">Year:</label>
+      <input type="number" name="year"/>
+    </p>
 
-    <a href="/{{title}}">Back to Book</a>
-    {{/books}}
+    <p>
+      <label for="publisher">Publisher:</label>
+      <input type="text" name="publisher" />
+    </p>
+
+    <p>
+      <label for="location">Location:</label>
+      <input type="text" name="location"/>
+    </p>
+
+    <p>
+      <button type="submit">Add Edition</button>
+    </p>
+    </form>
+    <p>
+      <a href="/{{title}}">Back to Book</a>
+      {{/book}}
+    </p>
+    <p>
+      <a href="/">Back to Library</a>
+    </p>
     <script src="https://cdn.shoelace.style/1.0.0-beta20/shoelace.js"></script>
   </body>
 </html>

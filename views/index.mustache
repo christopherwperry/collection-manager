@@ -9,7 +9,7 @@
   <body>
     <h1>Books in Library</h1>
     <div class="books">
-      {{#books}}
+      {{#book}}
       <div class="one-book">
         <a href="/{{title}}">
           <h2>{{title}}</h2>
@@ -21,10 +21,10 @@
           {{/author}}
         </dl>
       </div>
-      {{/books}}
-      {{^books}}
+      {{/book}}
+      {{^book}}
       <h2>No Books in Library</h2>
-      {{/books}}
+      {{/book}}
     </div>
     <p>
       <a href="/new">Add Book to Library</a>
