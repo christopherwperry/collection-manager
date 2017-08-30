@@ -1,18 +1,6 @@
-body {
-  text-align: center;
-}
-
-form {
-  text-align: left;
-  width: 80vw;
-  margin-right: 10vw;
-  margin-left: 10vw;
-}
-
 .books {
   display: flex;
   flex-direction: row;
-  justify-content: center;
 }
 
 .one-book {

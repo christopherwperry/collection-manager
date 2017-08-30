@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Book</title>
+    <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta20/shoelace.css">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+  <body>
+    <h1>Edit Book</h1>
+    <p>
+      <a href="/">Back to Library</a>
+    </p>
+    {{#book}}
+    <form class="edit-book" action="/{{title}}/edit" method="post">
+      <p>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="{{title}}" required>
+      </p>
+      <p>
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" value="{{author}}" required>
+      </p>
+      <p>
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" value="{{genre}}">
+      </p>
+      <p>
+        <label for="pages">Pages:</label>
+        <input type="number" id="pages" name="pages" value="{{pages}}">
+      </p>
+      <p>
+        <label for="year">Year Originally Published:</label>
+        <input type="number" id="year" name="year" value="{{year}}">
+      </p>
+      <p>
+        <label for="isbn">ISBN:</label>
+        <input type="number" id="isbn" name="isbn" value="{{isbn}}" placeholder="Enter ISBN #">
+      </p>
+      <p>
+        <label for="language">Language:</label>
+        <input type="text" id="language" name="language" value="{{language}}" placeholder="Enter Language">
+      </p>
+      <p>
+        <a href="/">Enter New Edition</a>
+      </p>
+      <p>
+        <button id="new_button" type="submit" name="button">Update Book Information</button>
+      </p>
+    </form>
+    {{/book}}
+    <script src="https://cdn.shoelace.style/1.0.0-beta20/shoelace.js"></script>
+  </body>
+</html>

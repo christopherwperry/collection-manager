@@ -15,7 +15,7 @@ app.engine('mustache', mustache());
 app.set('views', './views');
 app.set('view engine', 'mustache');
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressValidator());
 
 app.get('/new', function(req, res){
@@ -28,18 +28,53 @@ app.post('/new', function(req, res){
    })
 })
 
-app.get('/:title', function(req, res){
-    Book.findOne({title: req.params.title}).then(function(book){
-      res.render('book', {book: book})
+const getBook = function(req, res, next) {
+    Book.findOne({title: req.params.title}).then(function(book) {
+        req.book = book;
+        next();
     })
+};
+
+app.get('/:title', getBook, function(req, res){
+    const book = req.book;
+    res.render('book', {book: book})
+  });
+
+app.get('/:title/edit', getBook, function (req, res){
+    const book = req.book;
+    res.render('edit', {book: book})
+  })
+
+app.post('/:title/edit', getBook, function (req, res){
+    const book = req.book;
+    book.title = req.body.title;
+    book.author = req.body.author;
+    book.genre = req.body.genre;
+    book.pages = req.body.pages;
+    book.year = req.body.year;
+    book.isbn = req.body.isbn;
+    book.language = req.body.language;
+    const error = book.validateSync();
+    if (!error) {
+      book.save();
+      res.redirect(`/${book.title}`)
+    } else {
+      console.log(error);
+      res.render('edit', {book: book, errors: error.errors})
+    }
 })
 
 app.get('/:title/new_edition', function(req, res){
   Book.findOne({title: req.params.title})
   .then(function(book){
-//    book.editions.push(req.body);
-//    book.save();
     res.render('new_edition', {book: book})
+  })
+})
+
+
+app.post('/:title/delete', function (req, res) {
+  Book.deleteOne({title: req.params.title}).then(function(book){
+    res.redirect('/');
   })
 })
 

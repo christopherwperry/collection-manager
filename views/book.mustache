@@ -29,13 +29,13 @@
       <h3>Editions</h3>
       {{^editions}}
       <p>
-        No editions listed.
+        No editions entered.
       </p>
       {{/editions}}
       <ul>
         {{#editions}}
         <li>
-          {{year}} {{publisher}} {{location}}
+          Published in: {{year}} by {{publisher}} in {{location}}.
         </li>
         {{/editions}}
         </ul>
@@ -43,9 +43,18 @@
           <a href="/{{title}}/new_edition/" class="button">Add an Edition</a>
         </p>
     </div>
-    {{/book}}
     <p>
-      <a href="/">Back to Library</a>
+      <a class="button" href="/{{title}}/edit/">Edit Book Entry</a>
+    </p>
+
+    <form class="delete" action="/{{title}}/delete" method="post">
+      <button type="submit" name="button">Delete Book Entry</button>
+    </form>
+
+    {{/book}}
+    <br>
+    <p>
+      <a href="/" class="button">Back to Library</a>
     </p>
     <script src="https://cdn.shoelace.style/1.0.0-beta20/shoelace.js"></script>
   </body>
